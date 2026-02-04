@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Emma, Darlin</title>
+
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -10,10 +11,12 @@
     background: #ffe6eb;
     padding-top: 50px;
   }
+
   img {
     max-width: 300px;
     border-radius: 10px;
   }
+
   button {
     font-size: 24px;
     padding: 20px 40px;
@@ -21,10 +24,11 @@
     cursor: pointer;
     border-radius: 10px;
     border: none;
-    transition: all 0.2s; /* soepel effect bij krimpen/groeien */
+    transition: 0.2s;
   }
 </style>
 </head>
+
 <body>
 
 <img id="valentijnImg" src="https://i.postimg.cc/GmjsF2zH/Scherm-afbeelding-2026-02-04-om-22-52-23.png" alt="Valentijn"><br><br>
@@ -37,10 +41,10 @@
 <script>
 let neeKnop = document.getElementById("nee");
 let jaKnop = document.getElementById("ja");
-let neeGrootte = 200; // startbreedte van Nee-knop
-let jaGrootte = 200;  // startbreedte van Ja-knop
 
-// Startgrootte
+let neeGrootte = 200;
+let jaGrootte = 200;
+
 neeKnop.style.width = neeGrootte + "px";
 neeKnop.style.height = "70px";
 jaKnop.style.width = jaGrootte + "px";
@@ -48,12 +52,13 @@ jaKnop.style.height = "70px";
 
 // Nee-knop krimpt en Ja-knop groeit
 neeKnop.onclick = function() {
-    neeGrootte *= 0.7; // 30% kleiner per klik
+    neeGrootte *= 0.7;
     if (neeGrootte < 40) neeGrootte = 40;
+
     neeKnop.style.width = neeGrootte + "px";
     neeKnop.style.height = "50px";
 
-    jaGrootte *= 1.05; // Ja-knop groeit
+    jaGrootte *= 1.1;
     jaKnop.style.width = jaGrootte + "px";
     jaKnop.style.height = "80px";
 }
