@@ -2,7 +2,7 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
-<title>Emma, Darlin ❤️</title>
+<title>Emma, Darlin</title>
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -15,49 +15,58 @@
     border-radius: 10px;
   }
   button {
-    font-size: 20px;
-    padding: 15px 30px;
-    margin: 10px;
+    font-size: 24px;
+    padding: 20px 40px;
+    margin: 15px;
     cursor: pointer;
-    border-radius: 8px;
+    border-radius: 10px;
     border: none;
+    transition: all 0.2s; /* soepel effect bij krimpen/groeien */
   }
 </style>
 </head>
 <body>
 
-<!-- Afbeelding -->
 <img id="valentijnImg" src="https://i.postimg.cc/GmjsF2zH/Scherm-afbeelding-2026-02-04-om-22-52-23.png" alt="Valentijn"><br><br>
 
-<h1>Emma, Darlin wil je mijn Valentijn zijn? ❤️</h1>
+<h1>Emma, Darlin wil je mijn Valentijn zijn?</h1>
 
-<button id="ja">Ja ❤️</button>
-<button id="nee">Nee 🙃</button>
+<button id="ja">Ja</button>
+<button id="nee">Nee</button>
 
 <script>
 let neeKnop = document.getElementById("nee");
 let jaKnop = document.getElementById("ja");
-let neeGrootte = 100; // startbreedte in pixels
+let neeGrootte = 200; // startbreedte van Nee-knop
+let jaGrootte = 200;  // startbreedte van Ja-knop
 
-// Startgrootte van de nee-knop
+// Startgrootte
 neeKnop.style.width = neeGrootte + "px";
-neeKnop.style.height = "50px";
+neeKnop.style.height = "70px";
+jaKnop.style.width = jaGrootte + "px";
+jaKnop.style.height = "70px";
 
-// Nee-knop wordt kleiner bij elke klik
+// Nee-knop krimpt en Ja-knop groeit
 neeKnop.onclick = function() {
-    neeGrootte *= 0.8; // 20% kleiner per klik
-    if (neeGrootte < 20) neeGrootte = 20; // niet te klein
+    neeGrootte *= 0.7; // 30% kleiner per klik
+    if (neeGrootte < 40) neeGrootte = 40;
     neeKnop.style.width = neeGrootte + "px";
+    neeKnop.style.height = "50px";
+
+    jaGrootte *= 1.05; // Ja-knop groeit
+    jaKnop.style.width = jaGrootte + "px";
+    jaKnop.style.height = "80px";
 }
 
-// Ja-knop laat jouw video zien
+// Ja-knop laat YouTube video zien
 jaKnop.onclick = function() {
     document.body.innerHTML = `
         <h1>YES!! 💖</h1>
-        <video width="400" controls autoplay>
-          <source src="https://drive.google.com/uc?export=download&id=1J2oesiqTJ8bBT-kRRgf9c6o2sur9HonH" type="video/mp4">
-          Je browser ondersteunt dit filmpje niet.
-        </video>
+        <iframe width="400" height="300"
+          src="https://www.youtube.com/embed/ndu6wteMfCA?autoplay=1"
+          title="Valentijn Video" frameborder="0"
+          allow="autoplay; encrypted-media" allowfullscreen>
+        </iframe>
     `;
 }
 </script>
